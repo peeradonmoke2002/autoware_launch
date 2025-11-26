@@ -53,7 +53,7 @@
           pointcloud: false
 
           inside:
-            unknown: true
+            unknown: false
             car: true
             truck: true
             bus: true
@@ -72,8 +72,8 @@
             bicycle: true
             pedestrian: true
 
-        max_lat_margin: 0.3 # lateral margin between the obstacles except for unknown and ego's footprint
-        max_lat_margin_against_predicted_object_unknown: 0.3 # lateral margin between the unknown obstacles and ego's footprint
+        max_lat_margin: 0.3 # lateral margin between the obstacles except for unknown and ego's footprint (minimal to allow avoidance)
+        max_lat_margin_against_predicted_object_unknown: 0.3 # lateral margin between the unknown obstacles and ego's footprint (minimal to allow avoidance)
 
         min_velocity_to_reach_collision_point: 2.0 # minimum velocity margin to calculate time to reach collision [m/s]
         stop_obstacle_hold_time_threshold : 1.0 # maximum time for holding closest stop obstacle

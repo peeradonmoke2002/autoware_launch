@@ -47,7 +47,7 @@
         margin: 2.0
       trajectory_shift:
         enable: true
-        lat_shift_th: 0.5
+        lat_shift_th: 1.0  # Increased from 0.5 to allow avoidance lateral shifts
         forward_shift_th: 1.0
         backward_shift_th: 0.1
         handling_type: 2  # handling types are defined in common planning validator parameters
