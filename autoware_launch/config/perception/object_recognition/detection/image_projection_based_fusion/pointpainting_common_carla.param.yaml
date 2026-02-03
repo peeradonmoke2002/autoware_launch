@@ -1,0 +1,20 @@
+/**:
+  ros__parameters:
+    # CARLA-specific common configuration for PointPainting
+
+    diagnostics:
+      # Maximum allowed processing time before triggering a warning (milliseconds)
+      # Increased for CARLA as PointPainting is computationally intensive
+      max_allowed_processing_time_ms: 300.0
+
+      # Maximum consecutive delay before triggering an error (milliseconds)
+      max_acceptable_consecutive_delay_ms: 1500.0
+
+      # Interval for diagnostic callback (milliseconds)
+      pointpainting_validation_callback_interval_ms: 100.0
+
+    # Debug parameters
+    # These are inherited from fusion_common_carla.param.yaml:
+    # - debug_mode: true
+    # - collector_debug_mode: true
+    # - publish_processing_time_detail: true

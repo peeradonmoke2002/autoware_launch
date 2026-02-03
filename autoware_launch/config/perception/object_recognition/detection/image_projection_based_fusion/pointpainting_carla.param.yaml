@@ -1,0 +1,52 @@
+/**:
+  ros__parameters:
+    # CARLA-specific configuration for PointPainting Fusion
+
+    # Model paths (using environment variable for portability)
+    encoder_onnx_path: "$(var model_path)/pts_voxel_encoder_$(var model_name).onnx"
+    encoder_engine_path: "$(var model_path)/pts_voxel_encoder_$(var model_name).engine"
+    head_onnx_path: "$(var model_path)/pts_backbone_neck_head_$(var model_name).onnx"
+    head_engine_path: "$(var model_path)/pts_backbone_neck_head_$(var model_name).engine"
+
+    # TensorRT precision mode
+    # Options: fp32, fp16 (faster, recommended for most GPUs), int8 (fastest, requires calibration)
+    # Using fp32 to avoid potential memory management issues with fp16
+    trt_precision: fp32
+
+    # Maximum point cloud capacity
+    # Reduced for memory constraints with CARLA
+    cloud_capacity: 500000
+
+    # Post-processing parameters
+    post_process_params:
+      # Circle NMS: Remove detections that are too close
+      circle_nms_dist_threshold: 0.5
+
+      # IoU NMS: Search distance for nearby detections (in meters)
+      iou_nms_search_distance_2d: 10.0
+
+      # IoU NMS: Overlap threshold for merging detections
+      iou_nms_threshold: 0.1
+
+      # Score thresholds for each class (UNKNOWN, CAR, TRUCK, BUS, TRAILER, MOTORBIKE, BICYCLE, PEDESTRIAN)
+      # Lowered for CARLA to detect more objects
+      score_thresholds: [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.30]
+
+      # Yaw (heading) normalization thresholds
+      # Used to merge detections with similar orientations
+      yaw_norm_thresholds: [0.3, 0.3, 0.3, 0.3, 0.0, 0.3, 0.3, 0.0]
+
+    # Point cloud densification parameters
+    densification_params:
+      # Reference frame for accumulating point clouds
+      world_frame_id: "map"
+
+      # Number of past frames to accumulate (0 = current frame only)
+      # Set to 0 to reduce memory usage
+      num_past_frames: 0
+
+    # OpenMP parallelization parameters
+    omp_params:
+      # Number of threads for parallel processing
+      # Reduced to lower memory usage and avoid race conditions
+      num_threads: 2

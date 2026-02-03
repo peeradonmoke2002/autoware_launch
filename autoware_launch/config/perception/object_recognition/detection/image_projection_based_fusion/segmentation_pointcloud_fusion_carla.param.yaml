@@ -1,0 +1,34 @@
+/**:
+  ros__parameters:
+    # CARLA-specific configuration for Segmentation Pointcloud Fusion
+    # Filters point cloud based on semantic segmentation to remove static objects
+
+    # Semantic label filtering configuration
+    # Set to true to REMOVE points with that semantic label
+    # Set to false to KEEP points with that semantic label
+    filter_semantic_label_target:
+      UNKNOWN: false        # Keep unknown points
+      BUILDING: true        # Remove buildings (static)
+      WALL: true            # Remove walls (static)
+      OBSTACLE: false       # Keep obstacles (may be dynamic)
+      TRAFFIC_LIGHT: false  # Keep traffic lights
+      TRAFFIC_SIGN: false   # Keep traffic signs
+      PERSON: false         # Keep pedestrians (dynamic)
+      VEHICLE: false        # Keep vehicles (dynamic)
+      BIKE: false           # Keep bikes/motorcycles (dynamic)
+      ROAD: true            # Remove road surface (static)
+      SIDEWALK: false       # Keep sidewalks (for pedestrian detection)
+      ROAD_PAINT: false     # Keep road markings
+      CURBSTONE: false      # Keep curbstones
+      CROSSWALK: false      # Keep crosswalks
+      VEGETATION: true      # Remove vegetation (static)
+      SKY: true             # Remove sky points
+
+    # Maximum distance threshold for filtering (meters)
+    # Points beyond this distance won't be filtered
+    # Adjusted for CARLA typical detection range
+    filter_distance_threshold: 100.0
+
+    # Debug visualization
+    # Set to false for performance in multi-camera setups
+    is_publish_debug_mask: true

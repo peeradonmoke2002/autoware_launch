@@ -1,0 +1,39 @@
+/**:
+  ros__parameters:
+    # CARLA-specific configuration for ROI Pointcloud Fusion
+    # This node filters the point cloud to only keep points inside detected ROIs
+
+    # Whether to only fuse points from unknown/unclassified regions
+    # Set to false to process all ROIs regardless of classification
+    fuse_unknown_only: false
+
+    # Minimum number of points to form a cluster
+    # Lowered for CARLA to detect smaller objects
+    min_cluster_size: 2
+
+    # Maximum number of points in a cluster
+    # Increased for CARLA to handle larger vehicles
+    max_cluster_size: 500
+
+    # 2D clustering tolerance (in pixels)
+    # Distance threshold for grouping points in the same ROI
+    cluster_2d_tolerance: 1.0
+
+    # Scale factor to expand ROI bounding box
+    # 1.1 = expand ROI by 10% to catch points near edges
+    roi_scale_factor: 1.1
+
+    # Maximum object size (in meters)
+    # Points beyond this distance from ROI center are filtered out
+    # Increased for CARLA to handle large vehicles
+    max_object_size: 5.0
+
+    # Whether to override detected class with UNKNOWN
+    # Set to false to preserve ROI classification labels
+    override_class_with_unknown: false
+
+    # Debug parameters
+    # These are inherited from fusion_common_carla.param.yaml:
+    # - debug_mode: true
+    # - collector_debug_mode: true
+    # - publish_processing_time_detail: true

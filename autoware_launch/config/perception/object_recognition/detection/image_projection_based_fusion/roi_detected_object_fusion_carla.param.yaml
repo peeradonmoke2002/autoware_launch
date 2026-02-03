@@ -13,8 +13,8 @@
     trust_distances: [50.0, 100.0, 100.0, 100.0, 100.0, 50.0, 50.0, 50.0]
 
     # Minimum IoU threshold for matching objects with ROIs
-    # Increased to prevent wrong matches (0.3 = 30% overlap required)
-    min_iou_threshold: 0.3
+    # Lowered for better matching success rate in CARLA
+    min_iou_threshold: 0.1
 
     # Whether to use ROI probability in fusion
     use_roi_probability: true

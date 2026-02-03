@@ -22,11 +22,11 @@
     roi_scale_factor: 1.1
 
     # IoU threshold for matching clusters with ROIs
-    # Increased to prevent wrong matches (0.3 = 30% overlap required)
-    iou_threshold: 0.3
+    # Lowered for better matching success rate
+    iou_threshold: 0.1
 
     # IoU threshold for unknown class objects (lower threshold = more lenient)
-    unknown_iou_threshold: 0.15
+    unknown_iou_threshold: 0.01
 
     # Remove clusters that remain unknown after fusion
     # Set to false to keep all detected clusters

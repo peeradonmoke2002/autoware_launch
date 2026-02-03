@@ -1,11 +1,11 @@
 sensor_kit_base_link:
   camera0/camera_link:
-    x: 0.10731
-    y: 0.56343
-    z: -0.27697
-    roll: -0.025
-    pitch: 0.315
-    yaw: 1.035
+    x: 0.7
+    y: 0.0
+    z: 1.6
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
   camera1/camera_link:
     x: -0.10731
     y: -0.56343
@@ -42,23 +42,23 @@ sensor_kit_base_link:
     pitch: -0.01
     yaw: 3.125
   traffic_light_right_camera/camera_link:
-    x: 0.05
-    y: -0.0175
-    z: -0.1
+    x: 0.0
+    y: 0.0
+    z: 0.0
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
   traffic_light_left_camera/camera_link:
-    x: 0.05
-    y: 0.0175
-    z: -0.1
+    x: 0.7
+    y: 0.0
+    z: 1.6
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
   velodyne_top_base_link:
     x: 0.0
     y: 0.0
-    z: 0.0
+    z: 3.1
     roll: 0.0
     pitch: 0.0
     yaw: 1.575
@@ -86,7 +86,7 @@ sensor_kit_base_link:
   tamagawa/imu_link:
     x: 0.0
     y: 0.0
-    z: 0.0
+    z: 1.6
     roll: 3.14159265359
     pitch: 0.0
     yaw: 3.14159265359
