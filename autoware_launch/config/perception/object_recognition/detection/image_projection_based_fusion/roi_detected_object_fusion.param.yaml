@@ -9,19 +9,19 @@
 
     # Trust distance for each class (in meters)
     # Objects beyond this distance won't use ROI classification
-    # Adjusted for CARLA simulation environment
-    trust_distances: [50.0, 100.0, 100.0, 100.0, 100.0, 50.0, 50.0, 50.0]
+    # Increased pedestrian trust distance for better long-range detection
+    trust_distances: [50.0, 100.0, 100.0, 100.0, 100.0, 80.0, 80.0, 80.0]
 
     # Minimum IoU threshold for matching objects with ROIs
-    # Very lenient for small objects like pedestrians (0.1 = 10% overlap required)
-    min_iou_threshold: 0.1
+    # Extra lenient for high-density LiDAR (0.08 = 8% overlap required)
+    min_iou_threshold: 0.08
 
     # Whether to use ROI probability in fusion
     use_roi_probability: true
 
     # ROI probability threshold
     # Only ROIs with probability above this will be used
-    roi_probability_threshold: 0.2
+    roi_probability_threshold: 0.15
 
     # Assignment matrix: defines which ROI labels can be assigned to which object labels
     # Rows: detected object classes, Columns: ROI classes

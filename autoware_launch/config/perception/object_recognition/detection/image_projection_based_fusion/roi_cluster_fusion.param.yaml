@@ -8,7 +8,8 @@
     strict_iou_fusion_distance: 100.0
 
     # Matching modes: "iou" (full IoU), "iou_x" (only x-axis overlap), "iou_y" (only y-axis overlap)
-    strict_iou_match_mode: "iou"
+    # Use iou_x for both to be more lenient with dense point clouds
+    strict_iou_match_mode: "iou_x"
     rough_iou_match_mode: "iou_x"
 
     # Whether to use cluster semantic type from existing classification
@@ -18,15 +19,15 @@
     # Set to false to allow partial matches
     only_allow_inside_cluster: false
 
-    # Scale factor to expand ROI bounding box (1.2 = 20% larger for better pedestrian matching)
-    roi_scale_factor: 1.2
+    # Scale factor to expand ROI bounding box (1.5 = 50% larger for dense point clouds)
+    roi_scale_factor: 1.5
 
     # IoU threshold for matching clusters with ROIs
-    # Very lenient for small objects like pedestrians (0.1 = 10% overlap required)
-    iou_threshold: 0.1
+    # Extra lenient for high-density LiDAR (0.08 = 8% overlap required)
+    iou_threshold: 0.08
 
     # IoU threshold for unknown class objects (lower threshold = more lenient)
-    unknown_iou_threshold: 0.05
+    unknown_iou_threshold: 0.03
 
     # Remove clusters that remain unknown after fusion
     # Set to false to keep all detected clusters
