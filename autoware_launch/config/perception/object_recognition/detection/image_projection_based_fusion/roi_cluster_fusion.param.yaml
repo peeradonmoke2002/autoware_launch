@@ -18,15 +18,15 @@
     # Set to false to allow partial matches
     only_allow_inside_cluster: false
 
-    # Scale factor to expand ROI bounding box (1.1 = 10% larger)
-    roi_scale_factor: 1.1
+    # Scale factor to expand ROI bounding box (1.2 = 20% larger for better pedestrian matching)
+    roi_scale_factor: 1.2
 
     # IoU threshold for matching clusters with ROIs
-    # Increased to prevent wrong matches (0.3 = 30% overlap required)
-    iou_threshold: 0.3
+    # Very lenient for small objects like pedestrians (0.1 = 10% overlap required)
+    iou_threshold: 0.1
 
     # IoU threshold for unknown class objects (lower threshold = more lenient)
-    unknown_iou_threshold: 0.15
+    unknown_iou_threshold: 0.05
 
     # Remove clusters that remain unknown after fusion
     # Set to false to keep all detected clusters

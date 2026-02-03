@@ -5,7 +5,7 @@
     # Probability thresholds for each class (UNKNOWN, CAR, TRUCK, BUS, TRAILER, MOTORBIKE, BICYCLE, PEDESTRIAN)
     # Objects with probability below threshold will still pass through
     # Lowered thresholds for CARLA to allow more detections through
-    passthrough_lower_bound_probability_thresholds: [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.3]
+    passthrough_lower_bound_probability_thresholds: [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
 
     # Trust distance for each class (in meters)
     # Objects beyond this distance won't use ROI classification
@@ -13,15 +13,15 @@
     trust_distances: [50.0, 100.0, 100.0, 100.0, 100.0, 50.0, 50.0, 50.0]
 
     # Minimum IoU threshold for matching objects with ROIs
-    # Increased to prevent wrong matches (0.3 = 30% overlap required)
-    min_iou_threshold: 0.3
+    # Very lenient for small objects like pedestrians (0.1 = 10% overlap required)
+    min_iou_threshold: 0.1
 
     # Whether to use ROI probability in fusion
     use_roi_probability: true
 
     # ROI probability threshold
     # Only ROIs with probability above this will be used
-    roi_probability_threshold: 0.3
+    roi_probability_threshold: 0.2
 
     # Assignment matrix: defines which ROI labels can be assigned to which object labels
     # Rows: detected object classes, Columns: ROI classes
