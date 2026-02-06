@@ -4,13 +4,13 @@
 
     # Probability thresholds for each class (UNKNOWN, CAR, TRUCK, BUS, TRAILER, MOTORBIKE, BICYCLE, PEDESTRIAN)
     # Objects with probability below threshold will still pass through
-    # Lowered thresholds for CARLA to allow more detections through
-    passthrough_lower_bound_probability_thresholds: [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.3]
+    # Lowered pedestrian threshold for better far detection
+    passthrough_lower_bound_probability_thresholds: [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
 
     # Trust distance for each class (in meters)
     # Objects beyond this distance won't use ROI classification
-    # Adjusted for CARLA simulation environment
-    trust_distances: [50.0, 100.0, 100.0, 100.0, 100.0, 50.0, 50.0, 50.0]
+    # Extended for better long-range pedestrian detection (PEDESTRIAN: 50→100m)
+    trust_distances: [50.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0]
 
     # Minimum IoU threshold for matching objects with ROIs
     # Lowered for better matching success rate in CARLA

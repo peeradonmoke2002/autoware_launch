@@ -1,14 +1,14 @@
 /**:
   ros__parameters:
     # Fusion parameters for CARLA simulation
-    # Maximum distance for fusion (in meters)
+    # Maximum distance for fusion (in meters) - matches LiDAR range
     fusion_distance: 100.0
 
-    # Distance threshold for strict IoU matching
+    # Distance threshold for strict IoU matching - extended for far pedestrians
     strict_iou_fusion_distance: 100.0
 
     # Matching modes: "iou" (full IoU), "iou_x" (only x-axis overlap), "iou_y" (only y-axis overlap)
-    strict_iou_match_mode: "iou"
+    strict_iou_match_mode: "iou_x"
     rough_iou_match_mode: "iou_x"
 
     # Whether to use cluster semantic type from existing classification
@@ -18,8 +18,8 @@
     # Set to false to allow partial matches
     only_allow_inside_cluster: false
 
-    # Scale factor to expand ROI bounding box (1.1 = 10% larger)
-    roi_scale_factor: 1.1
+    # Scale factor to expand ROI bounding box (1.3 = 30% larger for better far-object matching)
+    roi_scale_factor: 1.3
 
     # IoU threshold for matching clusters with ROIs
     # Lowered for better matching success rate

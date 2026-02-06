@@ -42,9 +42,9 @@
     approximation_grid_cell_height: 1.0
 
     # Debug parameters
-    debug_mode: true
-    collector_debug_mode: true
-    publish_processing_time_detail: true
+    debug_mode: false
+    collector_debug_mode: false
+    publish_processing_time_detail: false
 
     # Whether to publish late messages
     # Set to true to publish output even when some ROIs are missing
