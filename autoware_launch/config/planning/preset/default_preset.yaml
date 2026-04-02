@@ -46,7 +46,7 @@ launch:
   # behavior velocity modules
   - arg:
       name: launch_crosswalk_module
-      default: "true"
+      default: "false" # Set to false due to use bt_obstacle instead
   - arg:
       name: launch_walkway_module
       default: "true"
