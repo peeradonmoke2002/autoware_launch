@@ -122,13 +122,13 @@ launch:
       default: "true"
   - arg:
       name: launch_mvp_run_out_module
-      default: "true"
+      default: "false"
   - arg:
       name: launch_boundary_departure_prevention_module
       default: "true"
   - arg:
       name: launch_road_user_stop_module
-      default: "true"
+      default: "false"  # Set to false due to use bt_obstacle instead
 
   - arg:
       name: velocity_smoother_type
