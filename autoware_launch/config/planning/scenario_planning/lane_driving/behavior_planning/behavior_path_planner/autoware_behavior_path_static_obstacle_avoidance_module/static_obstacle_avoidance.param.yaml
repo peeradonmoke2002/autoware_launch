@@ -122,8 +122,8 @@
           motorcycle: true                              # [-]
           pedestrian: true                              # [-]
         # detection range
-        object_check_goal_distance: 20.0                # [m]
-        object_check_return_pose_distance: 20.0         # [m]
+        object_check_goal_distance: 5.0                 # [m]
+        object_check_return_pose_distance: 5.0          # [m]
         # lost object compensation
         max_compensation_time: 2.0
 
