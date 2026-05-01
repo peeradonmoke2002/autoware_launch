@@ -7,8 +7,8 @@
 
     # Dynamic expansion by using the path curvature
     dynamic_expansion:
-      enabled: true
-      print_runtime: false
+      enabled: false
+      print_runtime: true
       max_expansion_distance: 0.0 # [m] maximum distance by which the drivable area can be expanded (0.0 means no limit)
       min_bound_interval: 1.0  # [m] minimum interval between two consecutive bound points (before expansion)
       smoothing:
