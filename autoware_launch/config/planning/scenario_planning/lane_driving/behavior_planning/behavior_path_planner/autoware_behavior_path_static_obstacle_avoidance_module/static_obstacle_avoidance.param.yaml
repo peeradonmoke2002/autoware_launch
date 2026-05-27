@@ -114,12 +114,12 @@
         # avoidance target type
         target_type:
           car: true                                     # [-]
-          truck: true                                   # [-]
+          truck: false                                   # [-]
           bus: true                                     # [-]
-          trailer: true                                 # [-]
-          unknown: true                                 # [-]
-          bicycle: true                                 # [-]
-          motorcycle: true                              # [-]
+          trailer: false                                 # [-]
+          unknown: false                                 # [-]
+          bicycle: false                                 # [-]
+          motorcycle: false                              # [-]
           pedestrian: true                              # [-]
         # detection range
         object_check_goal_distance: 20.0                # [m]
@@ -179,12 +179,12 @@
         # safety check target type
         target_type:
           car: true                                     # [-]
-          truck: true                                   # [-]
+          truck: false                                   # [-]
           bus: true                                     # [-]
-          trailer: true                                 # [-]
+          trailer: false                                 # [-]
           unknown: false                                # [-]
-          bicycle: true                                 # [-]
-          motorcycle: true                              # [-]
+          bicycle: false                                 # [-]
+          motorcycle: false                              # [-]
           pedestrian: true                              # [-]
         # safety check configuration
         enable: true                                    # [-]
@@ -258,7 +258,7 @@
 
       # For yield maneuver
       yield:
-        enable: true                                    # [-]
+        enable: false                                    # [-]
         enable_during_shifting: false                   # [-]
 
       # For stop maneuver
