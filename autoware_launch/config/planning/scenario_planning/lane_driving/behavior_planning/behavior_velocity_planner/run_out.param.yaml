@@ -9,7 +9,7 @@
       use_ego_cut_line: false     # Fair with BT: BT does not filter by ego cut line.
       specify_decel_jerk: true    # [-] whether to specify jerk when ego decelerates
       stop_margin: 5.0            # [m] the vehicle decelerates to be able to stop with this margin
-      passing_margin: 1.1         # [m] the vehicle begins to accelerate if the vehicle's front in predicted position is ahead of the obstacle + this margin
+      passing_margin: 2.5         # [A/B determinism test] 1.1 -> 2.5: widen so the early stop trigger fires the same (earlier) cycle despite ROS scheduling phase jitter. Revert to 1.1 for the original "fair with BT" config.
       deceleration_jerk: -0.3     # [m/s^3] ego decelerates with this jerk when stopping for obstacles
       detection_distance: 150.0   # [m] match BT forward_path_length for decision horizon
       detection_span: 1.0         # [m] calculate collision with this span to reduce calculation time
@@ -17,7 +17,7 @@
       ego_cut_line_length: 3.0    # The width of the ego's cut line
       ego_footprint_extra_margin: 0.5 # [m] expand the ego vehicles' footprint by this value on all sides when building the ego footprint path
       keep_obstacle_on_path_time_threshold: 1.0 # [s] How much time a previous run out target obstacle is kept in the run out candidate list if it enters the ego path.
-      keep_stop_point_time: 0.3   # [s] Fair with BT: no extra stop-point memory
+      keep_stop_point_time: 1.0   # [A/B determinism test] 0.3 -> 1.0: latch the stop so a marginal detection that flickers off for a cycle is not withdrawn. Revert to 0.3 for the original "fair with BT" config.
 
       # Parameter to create abstracted dynamic obstacles
       dynamic_obstacle:
