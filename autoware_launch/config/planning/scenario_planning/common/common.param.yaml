@@ -11,7 +11,7 @@
 
     # constraints to be observed
     limit:
-      min_acc: -2.5         # min deceleration limit [m/ss]
+      min_acc: -1.5         # min deceleration limit [m/ss]  (-2.5 -> -1.5: cap planned braking so stops are gentler)
       max_acc: 1.0          # max acceleration limit [m/ss]
-      min_jerk: -1.5        # min jerk limit [m/sss]
+      min_jerk: -1.0        # min jerk limit [m/sss]  (-1.5 -> -1.0: soften onset of braking)
       max_jerk: 1.5         # max jerk limit [m/sss]
