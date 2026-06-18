@@ -64,7 +64,7 @@
 
     # acceleration limit
     max_acc: 3.0
-    min_acc: -2.0   # -5.0 -> -2.0: cap commanded braking so the controller can't slam to -5 m/ss
+    min_acc: -3.0   # -2.0 -> -3.0: match planning hard-braking limit (Notion final setting); emergency_acc still allows harder
 
     # jerk limit
     max_jerk: 2.0

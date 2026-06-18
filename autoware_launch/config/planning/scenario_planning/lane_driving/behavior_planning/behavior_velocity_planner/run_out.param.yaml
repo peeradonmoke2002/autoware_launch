@@ -39,7 +39,7 @@
       slow_down_limit:
         enable: false
         max_jerk: -0.7  # [m/s^3] minimum jerk deceleration for safe brake.
-        max_acc : -2.0  # [m/s^2] minimum accel deceleration for safe brake.
+        max_acc : -3.0  # [m/s^2] -2.0 -> -3.0: nominal hard-braking threshold (Notion final setting). NOTE: enable=false above, so this is inactive until slow_down_limit is enabled.
 
       # Parameter to prevent abrupt stops caused by false positives in perception
       ignore_momentary_detection:
