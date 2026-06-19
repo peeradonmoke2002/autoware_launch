@@ -18,7 +18,7 @@
       steer_cmd_lim: [1.0, 1.0, 1.0, 0.8]
       steer_rate_lim_for_steer_cmd: [1.0, 1.0, 1.0, 0.8]
       lon_acc_lim_for_lon_vel: [3.0, 3.0, 3.0, 3.0]  # capped at 3.0 m/s^2 (was [5,5,5,4]) — hard ceiling on longitudinal decel
-      lon_jerk_lim_for_lon_acc: [80.0, 5.0, 5.0, 4.0]  # The first element is required for quick pedal changes when stopping and starting.
+      lon_jerk_lim_for_lon_acc: [5.0, 5.0, 5.0, 4.0]  # Keep low-speed accel-command changes jerk-limited; removes the 80 m/s^3 stop/start exception.
       lat_acc_lim_for_steer_cmd: [5.0, 5.0, 5.0, 4.0]
       lat_jerk_lim_for_steer_cmd: [7.0, 7.0, 7.0, 6.0]
       lat_jerk_lim_for_steer_rate: 10.0
