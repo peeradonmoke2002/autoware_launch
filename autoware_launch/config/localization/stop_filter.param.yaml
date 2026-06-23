@@ -1,4 +1,4 @@
 /**:
   ros__parameters:
-    vx_threshold: 0.001  # [m/s] Keep terminal odometry steps below the braking limit.
+    vx_threshold: 0.1  # [m/s] Keep terminal odometry steps below the braking limit.
     wz_threshold: 0.02  # [rad/s]

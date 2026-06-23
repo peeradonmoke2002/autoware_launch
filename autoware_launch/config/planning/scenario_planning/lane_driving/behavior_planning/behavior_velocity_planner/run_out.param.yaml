@@ -12,7 +12,11 @@
       passing_margin: 2.5         # [A/B determinism test] 1.1 -> 2.5: widen so the early stop trigger fires the same (earlier) cycle despite ROS scheduling phase jitter. Revert to 1.1 for the original "fair with BT" config.
       deceleration_jerk: -0.3     # [m/s^3] ego decelerates with this jerk when stopping for obstacles
       detection_distance: 150.0   # [m] match BT forward_path_length for decision horizon
-      detection_span: 1.0         # [m] calculate collision with this span to reduce calculation time
+      detection_span: 0.5         # [m] 1.0 -> 0.5: finer collision sampling so the fast crossing
+                                  #     pedestrian (~2 m/s) is not skipped between samples. run_out fired
+                                  #     in only 35/105 AW runs; the 70 misses were COMPLETE (lateral_dist
+                                  #     stuck at 50 m default), i.e. a detection-resolution/timing miss,
+                                  #     not a margin issue (ego_footprint_extra_margin would not help).
       min_vel_ego_kmph: 3.6       # [km/h] min velocity to calculate time to collision
       ego_cut_line_length: 3.0    # The width of the ego's cut line
       ego_footprint_extra_margin: 0.5 # [m] expand the ego vehicles' footprint by this value on all sides when building the ego footprint path
