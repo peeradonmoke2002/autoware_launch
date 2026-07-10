@@ -6,7 +6,7 @@
     enable_overshoot_emergency: false
     enable_large_tracking_error_emergency: true
     enable_slope_compensation: true
-    enable_keep_stopped_until_steer_convergence: false
+    enable_keep_stopped_until_steer_convergence: true
 
     # state transition
     drive_state_stop_dist: 0.5
@@ -51,11 +51,11 @@
 
     # stopped state
     stopped_vel: 0.0
-    stopped_acc: -3.4 # denotes pedal position
+    stopped_acc: -3.0 # denotes pedal position
 
     # emergency state
     emergency_vel: 0.0
-    emergency_acc: -3.0 # denotes acceleration
+    emergency_acc: -5.0 # denotes acceleration
     emergency_jerk: -3.0
 
     # acceleration feedback
@@ -64,11 +64,11 @@
 
     # acceleration limit
     max_acc: 3.0
-    min_acc: -3.0   # -2.0 -> -3.0: match planning hard-braking limit (Notion final setting); emergency_acc still allows harder
+    min_acc: -3.0   
 
     # jerk limit
     max_jerk: 2.0
-    min_jerk: -2.0  # -5.0 -> -2.0: soften brake onset to match the gentler accel cap
+    min_jerk: -5.0  # fast brake onset; -2.0 soft ramp ate ~11 m of stopping distance (r02 collision)
     max_acc_cmd_diff: 50.0 # [m/s^2 * s^-1]
 
     # slope compensation
