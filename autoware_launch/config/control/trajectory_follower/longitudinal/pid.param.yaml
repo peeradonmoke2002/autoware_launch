@@ -26,7 +26,7 @@
     max_p_effort: 1.0
     min_p_effort: -1.0
     max_i_effort: 0.3
-    min_i_effort: -0.3
+    min_i_effort: -0.6
     max_d_effort: 0.0
     min_d_effort: 0.0
     lpf_vel_error_gain: 0.9

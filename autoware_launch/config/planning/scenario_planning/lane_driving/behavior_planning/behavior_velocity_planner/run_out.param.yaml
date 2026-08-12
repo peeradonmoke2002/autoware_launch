@@ -4,19 +4,19 @@
       detection_method: "Object"  # [-] candidate: Object, ObjectWithoutPath, Points
       target_obstacle_types: ["PEDESTRIAN"] # [-] Obstacle types considered by this module
       exclude_obstacles_already_in_path: false # Fair with BT: do not ignore pedestrians already on the ego footprint.
-      use_partition_lanelet: true # [-] whether to use partition lanelet map data
+      use_partition_lanelet: false # Fair with BT: BT does not filter obstacles by partition lanelets.
       suppress_on_crosswalk: false # Fair with BT/CARLA test: crosswalk suppression is not modeled in BT run-out.
       use_ego_cut_line: false     # Fair with BT: BT does not filter by ego cut line.
       specify_decel_jerk: true    # [-] whether to specify jerk when ego decelerates
-      stop_margin: 5.0            # [m] the vehicle decelerates to be able to stop with this margin
-      passing_margin: 2.5         # [A/B determinism test] 1.1 -> 2.5: widen so the early stop trigger fires the same (earlier) cycle despite ROS scheduling phase jitter. Revert to 1.1 for the original "fair with BT" config.
+      # Temporary matched-default numeric pilot (trigger 27 m, offset 0.5 m).
+      # Feature flags remain matched with BT. Shared numerical parameters use
+      # upstream defaults except detection_span=0.5 and passing_margin=5.0 for
+      # this matched boundary ablation.
+      stop_margin: 2.5            # [m] upstream default
+      passing_margin: 5.0         # [m] ablation: covers the 4.792 m ego-length boundary
       deceleration_jerk: -0.3     # [m/s^3] ego decelerates with this jerk when stopping for obstacles
-      detection_distance: 150.0   # [m] match BT forward_path_length for decision horizon
-      detection_span: 0.5         # [m] 1.0 -> 0.5: finer collision sampling so the fast crossing
-                                  #     pedestrian (~2 m/s) is not skipped between samples. run_out fired
-                                  #     in only 35/105 AW runs; the 70 misses were COMPLETE (lateral_dist
-                                  #     stuck at 50 m default), i.e. a detection-resolution/timing miss,
-                                  #     not a margin issue (ego_footprint_extra_margin would not help).
+      detection_distance: 45.0    # [m] upstream default
+      detection_span: 0.5         # [m] ablation: finer than the 1.0 m upstream default
       min_vel_ego_kmph: 3.6       # [km/h] min velocity to calculate time to collision
       ego_cut_line_length: 3.0    # The width of the ego's cut line
       ego_footprint_extra_margin: 0.5 # [m] expand the ego vehicles' footprint by this value on all sides when building the ego footprint path
@@ -33,7 +33,7 @@
         std_dev_multiplier: 1.96  # [-] min and max velocity of the obstacles are calculated from this value and covariance
         diameter: 0.1             # [m] diameter of obstacles. used for creating dynamic obstacles from points
         height: 2.0               # [m] height of obstacles. used for creating dynamic obstacles from points
-        max_prediction_time: 7.0  # [sec] create predicted path until this time
+        max_prediction_time: 3.0  # [sec] upstream default
         time_step: 0.5            # [sec] time step for each path step. used for creating dynamic obstacles from points or objects without path
         points_interval: 0.1      # [m] divide obstacle points into groups with this interval, and detect only lateral nearest point. used only for Points method
 
@@ -43,12 +43,12 @@
       slow_down_limit:
         enable: false
         max_jerk: -0.7  # [m/s^3] minimum jerk deceleration for safe brake.
-        max_acc : -3.0  # [m/s^2] -2.0 -> -3.0: nominal hard-braking threshold (Notion final setting). NOTE: enable=false above, so this is inactive until slow_down_limit is enabled.
+        max_acc : -2.0  # [m/s^2] upstream default; inactive while enable=false
 
       # Parameter to prevent abrupt stops caused by false positives in perception
       ignore_momentary_detection:
         enable: false
-        time_threshold: 0.15   # [sec] ignores detections that persist for less than this duration
+        time_threshold: 0.5    # [sec] upstream default; inactive while enable=false
 
       # Typically used when the "detection_method" is set to ObjectWithoutPath or Points
       # Approach if the ego has stopped in front of the obstacle for a certain period
